@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>users</title>
+    <style>
+        table , td , th{
+            border:2px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div>
+    <table>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>edit</th>
+            <% for(let i=0;i<result.length;i++) {%>
+            <tr>
+                <td> <%= result[i]["id"]%></td>
+                <td> <%= result[i]["username"]%></td>
+                <td> <%= result[i]["email"]%></td>
+                <td>
+                    <form action="/user/<%=result[i]["id"]%>" method="get">
+                        <button>edit</button>
+                    </form>
+                    
+                </td>
+                <td>
+                <form action="/user/<%=result[i]["id"]%>?_method=DELETE" method="post">
+                    <button>delete</button>
+                </form>
+            </td>
+            </tr> 
+            <%}%>
+        </table>
+    </div>
+</body>
+</html>
